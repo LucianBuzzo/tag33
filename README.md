@@ -5,12 +5,12 @@ Tag35 is a specialized identification system built on a base-35 alphanumeric sch
 ### Examples
 
 ```
-391G244EL6453K
-Y7Y3YZLUCT9S8W
-YVDM8Z2NHIFR81
-NYV1FPELVD7H7N
+9WCLWL7X2HQH7N
+A3YPS9T1EQN872
+KKERRF16E42D5S
+KPQGGDQWZLUJ91
 
-DMTL UO83 DQZZ 8F
+1MEB 1CK2 QP4G 59
 └──┘ └──┘ └──┘ └┘
 3 blocks of 4 characters, followed by a sum in base35
 ```
