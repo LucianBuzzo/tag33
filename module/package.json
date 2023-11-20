@@ -7,7 +7,7 @@
   "scripts": {
     "test": "node index.spec.mjs"
   },
-  "author": "",
+  "author": "Lucian Buzzo <lucian.buzzo@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "nanoid": "^5.0.3"

@@ -1,0 +1,36 @@
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+name: release-please
+jobs:
+  release-please:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: module
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: node
+          package-name: release-please-action
+      # The logic below handles the npm publication:
+      - uses: actions/checkout@v2
+        # these if statements ensure that a publication only occurs when
+        # a new release is created:
+        if: ${{ steps.release.outputs.release_created }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 20
+          registry-url: "https://registry.npmjs.org"
+        if: ${{ steps.release.outputs.release_created }}
+      - run: yarn
+        if: ${{ steps.release.outputs.release_created }}
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
+        if: ${{ steps.release.outputs.release_created }}
