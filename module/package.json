@@ -1,0 +1,15 @@
+{
+  "name": "tag33",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.spec.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nanoid": "^5.0.3"
+  }
+}
