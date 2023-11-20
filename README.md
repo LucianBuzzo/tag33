@@ -14,3 +14,23 @@ KPQGGDQWZLUJ91
 └──┘ └──┘ └──┘ └┘
 3 blocks of 4 characters, followed by a sum in base33
 ```
+
+### Usage
+
+You can get started with Tag33 by installing the package from npm:
+
+```bash
+npm i tag33
+```
+
+Then, import the package into your project:
+
+```javascript
+const tag33 = require("tag33");
+
+// Generate an ID
+const id = tag33.generate(); // 7B9YYGB58CNM6N
+
+// Verify an ID
+const isValid = tag33.verify(id); // true
+```
