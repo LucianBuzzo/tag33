@@ -10,12 +10,14 @@ jobs:
   test:
     timeout-minutes: 30
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: module
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Test using Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: cd module
       - run: npm install
       - run: npm test
