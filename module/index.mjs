@@ -19,6 +19,10 @@ export function toBase33(num) {
   return result || "1"; // Return '1' if input is zero
 }
 
+export function toTwoCharBase33(num) {
+  return toBase33(num).padStart(2, "1");
+}
+
 export function calculateBase33Sum(id) {
   let sum = 0;
 
@@ -34,15 +38,19 @@ export const generate = () => {
   const nanoid = customAlphabet(alphabet, 12);
   const baseId = nanoid();
   const sum = calculateBase33Sum(baseId);
-  const b33Sum = toBase33(sum);
+  const b33Sum = toTwoCharBase33(sum);
 
   return baseId + b33Sum;
 };
 
 export const verify = (tag) => {
+  if (!/^[1-9A-HJ-NP-Z]{14}$/.test(tag)) {
+    return false;
+  }
+
   const baseId = tag.slice(0, -2);
   const sum = calculateBase33Sum(baseId);
   const b33Sum = tag.slice(-2);
 
-  return toBase33(sum) === b33Sum;
+  return toTwoCharBase33(sum) === b33Sum;
 };
